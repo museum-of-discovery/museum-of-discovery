@@ -16,8 +16,8 @@ const curiositySchema = new Schema ({
     },
     category: {
         type: String,
-        enum: ["Natural Wonders", "Terrific Technology", "Curious Art", "Raving Reliques", "Interesting Stuff"],
-        default: "Interesting Stuff"
+        enum: ["Natural Wonders", "Terrific Technology", "Curious Art", "Raving Reliques", "Fascinating Finds"],
+        default: "Fascinating Finds"
     },
     image: String,
 },
