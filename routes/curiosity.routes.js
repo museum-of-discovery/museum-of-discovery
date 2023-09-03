@@ -25,8 +25,11 @@ router.get("/curiosities-create", (req, res, next) => {
 
 //CREATE: process form
 router.post("/curiosities-create", (req, res, next) => {
+
+    const currentUser = req.user; 
+
     const newCuriosity = {
-        user: req.body.user,
+        user: currentUser._id,
         title: req.body.title,
         date: req.body.date,
         description: req.body.description,
@@ -35,11 +38,15 @@ router.post("/curiosities-create", (req, res, next) => {
     };
     console.log(req.body.description)
 
-    // Curiosity.create(newCuriosity)
-    //     .then((newCuriosity) => {
-    //         res.redirect("/")
-    //     })
-})
+    Curiosity.create(newCuriosity)
+        .then((newCuriosity) => {
+            res.redirect("/")
+        })
+        .catch(e => {
+            console.log("error creating a new curiosity", e);
+            next(e);
+        });
+});
 
 
 

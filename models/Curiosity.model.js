@@ -9,7 +9,7 @@ const curiositySchema = new Schema ({
         type: String,
         required: true
     },
-    date: String,
+    date: Date,
     description: {
         type: String,
         required: true
