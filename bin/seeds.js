@@ -8,25 +8,25 @@ const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/my-proje
 const curiosities = [
     {
         title: "Great Grandmas Earrings",
-        date: "1920s",
+        date: new Date("1920-01-01"),
         description: "Great-Grandma Evelyn's bowtie earrings are our family's cherished heirloom. Passed down through generations, they symbolize enduring love and timeless beauty. Hearing stories of her grace and charm, I feel connected to her, a piece of history in my hands.",
         category: "Raving Reliques"
     },
     {
         title: "Rotary Phone",
-        date: "1980s",
+        date: new Date("1980-01-01"),
         description: "Hidden away in my grandparents' basement, I found a relic from the '80s—a vintage rotary phone, its dial untouched for decades. Memories of my parents using it rushed back. Each call, a deliberate connection. I marveled at its mechanical simplicity and rhythmic dial clicks. This phone was a link to a time when voices bridged distances, a keeper of stories. As I held it, I thought of late-night chats, teenage secrets, and heartfelt goodbyes. It was a silent confidant, a symbol of simpler times.", 
         category: "Terrific Technology"
     },
     {
         title: "Petrified Forest of Arizona",
-        date: "200 Million Years",
+        date: new Date("0001-01-01"),
         description: "In the Arizona desert, I explored the Petrified Forest. Guided by Ranger Sarah, I marveled at the ancient trees turned stone. The Painted Desert's vibrant hues and an ancient pueblo site's stories left me awestruck. The Crystal Forest, aglow under starry skies, felt surreal, a connection to the past and the cosmos. Leaving, I carried the Petrified Forest's timeless beauty and history in my heart.",
         category: "Natural Wonders"
     },
     {
         title: "Old Painting",
-        date: "1880",
+        date: new Date("1880-01-01"),
         description: "At a garage sale, I discovered a forgotten 1880 fruit bowl painting. Mrs. Johnson shared its family history, and now it adorns my home.",
         category: "Curious Art"
     }
