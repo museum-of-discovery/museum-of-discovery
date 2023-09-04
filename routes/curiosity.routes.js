@@ -122,6 +122,29 @@ router.post("/curiosities-create", fileUploader.single('image'), (req, res, next
         });
 });
 
+
+//Edit Curiosity:
+router.get('/:category/:curiosityId/edit', (req, res, next) => {
+    const {curiosityId} = req.params;
+    console.log(req.params)
+
+    Curiosity.findById(curiosityId)
+        .then(curiosityToEdit => {
+            res.render("curiosities/update-form", {curiosities: curiosityToEdit})
+        })
+        .catch(e => next(e));
+});
+
+router.post('/:category/:curiosityId/edit', (req, res, next) => {
+    const curiosityId = req.params.id;
+    const category = req.body.category;
+    const { title, date, description } = req.body;
+
+    Curiosity.findByIdAndUpdate(curiosityId, { title, date, description, category }, { new: true })
+        .then(updatedCuriosity => res.redirect(`/${category}/${updatedCuriosity.id}`))
+        .catch(error => next(error));
+});
+
 // DELETE: delete curiosities
 router.post('/:category/:id/delete', (req, res, next) => {
     const id = req.params.id;
