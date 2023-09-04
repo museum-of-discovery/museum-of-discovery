@@ -1,1 +1,13 @@
-terrific
+<h1>Terrific Technology</h1>
+
+{{#each curiosities}}
+<section>
+    <h2>{{this.title}}</h2>
+    <a href="{{this.image}}"></a>
+    <span>
+        {{this.date}}
+    </span>
+    <p>{{this.description}}</p>
+
+</section>
+{{/each}}
