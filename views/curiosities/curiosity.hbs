@@ -1,4 +1,4 @@
-<h1>Terrific Technology</h1>
+<h1>{{title}}</h1>
 
 {{#each curiosities}}
 <section>
@@ -7,9 +7,10 @@
     <span>
         {{this.date}}
     </span>
-    <p>{{this.description}}</p>
+    <p> <a href="/curiosities/{{this._id}}">More details</a></p>
 
-     <form action="/terrific-technology/{{_id}}/delete" method="POST">
+     <form action="/curiosities/{{_id}}/delete" method="POST">
+        <input type="hidden" name="category" value="{{this.category}}">
         <button>Delete</button>
     </form>
 

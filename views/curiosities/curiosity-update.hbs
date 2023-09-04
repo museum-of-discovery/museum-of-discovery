@@ -1,6 +1,6 @@
 <h2>Update Curiosity</h2>
 
-<form method="POST" action="/curiosities/{{curiosity._id}}/edit">
+<form method="POST" action="/{{category}}/{{curiosities._id}}/edit">
     <label> Title:<span class="required-indicator">*</span>
         <input type="text" name="title" value="{{curiosities.title}}" />
     </label>
@@ -15,7 +15,7 @@
         
     </label>
 
-    <label> Category:
+   <label> Category:
         <select name="category">
             <option value="Natural Wonders">Natural Wonders</option>
             <option value="Terrific Technology">Terrific Technology</option>
