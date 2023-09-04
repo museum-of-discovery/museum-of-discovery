@@ -9,7 +9,11 @@ const curiositySchema = new Schema ({
         type: String,
         required: true
     },
-    date: Date,
+    date: {
+        type: String,
+        enum: ["Old Stone Age", "New Stone Age", "Bronze Age", "Iron Age", "Classical Antiquity", "Medieval Period", "Renaissance", "Early Modern Period","Industrial Revolution", "Modern Era", "Other" ],
+        
+    },
     description: {
         type: String,
         required: true
@@ -17,7 +21,7 @@ const curiositySchema = new Schema ({
     category: {
         type: String,
         enum: ["Natural Wonders", "Terrific Technology", "Curious Art", "Raving Reliques", "Fascinating Finds"],
-        default: "Fascinating Finds"
+        
     },
     image: String,
 },
