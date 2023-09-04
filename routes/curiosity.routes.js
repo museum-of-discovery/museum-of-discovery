@@ -10,37 +10,75 @@ const router = express.Router();
 
 //CREATE: display form 
 router.get("/curiosities-create", (req, res, next) => {
-    User.find()
-        .then( usersFromDB => {
-            const data = {
-                users: usersFromDB
-            }
-            res.render("curiosities/curiosity-create", data);
+   Curiosity.find()
+        .then((curiositiesFromDB) => {
+           res.render("curiosities/curiosity-create", {curiosities: curiositiesFromDB}); 
         })
+            
         .catch( (e) => {
-            console.log("Error getting list of users from DB", e);
+            console.log("Error getting list of curiosities from DB", e);
             next(e);
         });
 });
 
 router.get('/natural-wonders', (req, res, next) => {
-    res.render('curiosities/natural-wonders.hbs')
+    Curiosity.find({category: "Natural Wonders"})
+        .then((curiositiesFromDB) => {
+               res.render("curiosities/natural-wonders", {curiosities: curiositiesFromDB});   
+        })
+            
+        .catch( (e) => {
+            console.log("Error getting list of curiosities from DB", e);
+            next(e);
+        });
 });
 
 router.get('/terrific-technology', (req, res, next) => {
-    res.render('curiosities/terrific-technology.hbs')
+    Curiosity.find({category: "Terrific Technology"})
+    .then((curiositiesFromDB) => {
+           res.render("curiosities/terrific-technology", {curiosities: curiositiesFromDB});   
+    })
+        
+    .catch( (e) => {
+        console.log("Error getting list of curiosities from DB", e);
+        next(e);
+    });
 })
 
 router.get('/curious-art', (req, res, next) => {
-    res.render('curiosities/curious-art.hbs')
+    Curiosity.find({category: "Curious Art"})
+    .then((curiositiesFromDB) => {
+           res.render("curiosities/curious-art", {curiosities: curiositiesFromDB});   
+    })
+        
+    .catch( (e) => {
+        console.log("Error getting list of curiosities from DB", e);
+        next(e);
+    });
 })
 
 router.get('/raving-reliques', (req, res, next) => {
-    res.render('curiosities/raving-reliques.hbs')
+    Curiosity.find({category: "Raving Reliques"})
+    .then((curiositiesFromDB) => {
+           res.render("curiosities/raving-reliques", {curiosities: curiositiesFromDB});   
+    })
+        
+    .catch( (e) => {
+        console.log("Error getting list of curiosities from DB", e);
+        next(e);
+    });
 })
 
 router.get('/fascinating-finds', (req, res, next) => {
-    res.render('curiosities/fascinating-finds.hbs')
+    Curiosity.find({category: "Fascinating Finds"})
+    .then((curiositiesFromDB) => {
+           res.render("curiosities/fascinating-finds", {curiosities: curiositiesFromDB});   
+    })
+        
+    .catch( (e) => {
+        console.log("Error getting list of curiosities from DB", e);
+        next(e);
+    });
 })
 
 
