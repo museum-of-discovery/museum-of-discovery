@@ -1,6 +1,6 @@
 <h1>Create a curiosity</h1>
 
-<form method="POST" action="/curiosities-create">
+<form method="POST" action="/curiosities-create" enctype="multipart/form-data">
 
     <label> Title:<span class="required-indicator">*</span>
         <input type="text" name="title" required />
@@ -25,9 +25,10 @@
     </label>
 
     <label> Image:<span class="required-indicator">*</span>
-        <input type="file" name="image" accept="image/*"/>
+        <input type="file" name="image"/ class="form-control-file">
     </label>
 
     
     <button type="submit"> Create </button>
 </form>
+

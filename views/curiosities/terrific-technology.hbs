@@ -3,11 +3,15 @@
 {{#each curiosities}}
 <section>
     <h2>{{this.title}}</h2>
-    <a href="{{this.image}}"></a>
+    <img src="{{image}}" class="card-img-top" alt="{{title}}">
     <span>
         {{this.date}}
     </span>
     <p>{{this.description}}</p>
+
+     <form action="/terrific-technology/{{_id}}/delete" method="POST">
+        <button>Delete</button>
+    </form>
 
 </section>
 {{/each}}
