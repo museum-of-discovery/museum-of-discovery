@@ -1,26 +1,26 @@
-<h1>{{title}}</h1>
+<h1>{{curiosity.title}}</h1>
 
 <hr />
 
-<img src="{{image}}" alt="">
+<img src="{{curiosity.image}}" alt="">
 
-<h3>{{user.username}}</h3>
+<h3>{{curiosity.user.username}}</h3>
 
 
 <h3>Description</h3>
-<p>{{description}}</p>
+<p>{{curiosity.description}}</p>
 
 <h4>Date</h4>
-<p>{{date}}</p>
+<p>{{curiosity.date}}</p>
 
 
 
 <hr />
-{{#if user}}
-<form action="/curiosities/{{_id}}/delete" method="POST">
-    <input type="hidden" name="category" value="{{this.category}}">
+{{#if isAllowedToEdit}}
+<form action="/curiosities/{{curiosity._id}}/delete" method="POST">
+    <input type="hidden" name="category" value="{{curiosity.category}}">
     <button>Delete</button>
 </form>
-<a href="/curiosities/{{this._id}}/edit">Edit</a>
+<a href="/curiosities/{{curiosity._id}}/edit">Edit</a>
 {{/if}}
 <a href="/">Home</a>

@@ -67,7 +67,8 @@ router.get("/curiosities/:id", (req, res, next) => {
     Curiosity.findById(id)
         .populate("user")
         .then(curiosityFromDB => {
-            res.render("curiosities/curiosity-details", curiosityFromDB);
+            const isAllowedToEdit = req.session.currentUser && req.session.currentUser?._id === curiosityFromDB.user?._id.toString()
+            res.render("curiosities/curiosity-details", { curiosity: curiosityFromDB, isAllowedToEdit });
         })
         .catch((e) => {
             console.error("Error getting list of curiosities from DB", e);
