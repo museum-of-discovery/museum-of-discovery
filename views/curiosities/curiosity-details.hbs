@@ -16,9 +16,11 @@
 
 
 <hr />
+{{#if user}}
 <form action="/curiosities/{{_id}}/delete" method="POST">
     <input type="hidden" name="category" value="{{this.category}}">
     <button>Delete</button>
 </form>
 <a href="/curiosities/{{this._id}}/edit">Edit</a>
+{{/if}}
 <a href="/">Home</a>

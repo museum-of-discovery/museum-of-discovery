@@ -134,7 +134,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           // Remove the password field
           delete req.session.currentUser.password;
 
-          res.redirect("/user-profile");
+          res.redirect("/auth/user-profile");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
@@ -156,9 +156,9 @@ router.get("/logout", isLoggedIn, (req, res) => {
 // GET user profile:
 router.get("/user-profile", (req, res, next) => {
   const data = {
-    currentUser:req.session.currentUser
+    currentUser: req.session.currentUser
   }
-
+  console.log(data.currentUser)
   res.render("auth/user-profile", data);
 })
 

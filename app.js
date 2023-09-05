@@ -18,12 +18,21 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 
-require('./config/session.config')(app);
+
 
 const capitalize = require("./utils/capitalize");
 const projectName = "my-project";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
+
+app.use((req, res, next) => {
+    if (req.session.currentUser) {
+        app.locals.user = req.session.currentUser
+    } else {
+        app.locals.user = null
+    }
+    next()
+})
 
 // 👇 Start handling routes here
 const indexRoutes = require("./routes/index.routes");

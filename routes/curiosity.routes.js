@@ -101,6 +101,8 @@ router.post('/curiosities/:id/edit', isLoggedIn, fileUploader.single('image'), (
     }
 
 
+
+
     Curiosity.findByIdAndUpdate(id, { title, date, description, category, image }, { new: true })
         .then(updatedCuriosity => res.redirect(`/curiosities/${updatedCuriosity.id}`))
         .catch(error => {
