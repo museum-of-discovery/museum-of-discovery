@@ -7,11 +7,15 @@
 <h3>Description</h3>
 <p>{{description}}</p>
 
-<h3>date</h3>
-<p>{{rating}}</p>
+<h4>Date</h4>
+<p>{{date}}</p>
 
 
 
 <hr />
+<form action="/curiosities/{{_id}}/delete" method="POST">
+    <input type="hidden" name="category" value="{{this.category}}">
+    <button>Delete</button>
+</form>
 <a href="/curiosities/{{this._id}}/edit">Edit</a>
 <a href="/">Home</a>

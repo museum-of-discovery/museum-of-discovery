@@ -1,21 +1,35 @@
 <h2>Update Curiosity</h2>
 
-<form method="POST" action="/{{category}}/{{curiosities._id}}/edit">
+<form method="POST" action="/curiosities/{{curiosities._id}}/edit" enctype="multipart/form-data">
     <label> Title:<span class="required-indicator">*</span>
-        <input type="text" name="title" value="{{curiosities.title}}" />
+        <input type="text" name="title" value={{curiosities.title}} />
     </label>
 
     <label> Date:
-        <input type="date" name="date" />
+        <select name="date">
+            <option value="Old Stone Age">Old Stone Age (2.6 million to 10,000 BCE)</option>
+            <option value="New Stone Age">New Stone Age (10,000 BCE to 3,000 BCE)</option>
+            <option value="Bronze Age">Bronze Age (3,000 BCE to 1,200 BCE)</option>
+            <option value="Iron Age">Iron Age (Begins around 1,200 BCE)</option>
+            <option value="Classical Antiquity">Classical Antiquity (8th century BCE to the 6th century CE)</option>
+            <option value="Medieval Period">Medieval Period (From the 5th century CE to the 15th century CE)</option>
+            <option value="Renaissance">Renaissance (14th century CE to the 17th century CE)</option>
+            <option value="Early Modern Period">Early Modern Period (Late 15th century CE to the 18th century CE)
+            </option>
+            <option value="Industrial Revolution">Industrial Revolution (Late 18th century CE to the mid-19th century
+                CE)</option>
+            <option value="Modern Era">Modern Era (Late 19th century CE to the present day)</option>
+            <option value="Other">Other</option>
+        </select>
     </label>
 
     <label> Description:<span class="required-indicator">*</span>
-        
-            <textarea type="text" name="title" cols="30" rows="4">{{curiosities.description}}</textarea>
-        
+
+        <textarea type="text" name="description" cols="30" rows="4">{{curiosities.description}}</textarea>
+
     </label>
 
-   <label> Category:
+    <label> Category:
         <select name="category">
             <option value="Natural Wonders">Natural Wonders</option>
             <option value="Terrific Technology">Terrific Technology</option>
@@ -26,7 +40,7 @@
     </label>
 
     <label> Image:<span class="required-indicator">*</span>
-        <input type="file" name="image" accept="image/*"/>
+        <input type="file" name="image"  />
     </label>
 
 

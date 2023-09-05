@@ -84,13 +84,27 @@ router.get('/curiosities/:id/edit', (req, res, next) => {
 });
 
 // EDIT: update values of one curiosity:
-router.post('/curiosities/:id/edit', (req, res, next) => {
+router.post('/curiosities/:id/edit', fileUploader.single('image'), (req, res, next) => {
     const { id } = req.params;
     const { title, date, description, category } = req.body;
+   // const { image } = req.file ? req.file.path : {};
+    // console.log(req.file.path)
+    let image;
+    console.log(req.body)
+    if(req.file){
+        console.log(req.file.path)
+         image = req.file.path
+    } else {
+        console.log('Img', req.body.image)
+    }
 
-    Curiosity.findByIdAndUpdate(id, { title, date, description, category }, { new: true })
-        .then(updatedCuriosity => res.redirect(`/${category}/${updatedCuriosity.id}`))
-        .catch(error => next(error));
+
+    Curiosity.findByIdAndUpdate(id, { title, date, description, category, image }, { new: true })
+        .then(updatedCuriosity => res.redirect(`/curiosities/${updatedCuriosity.id}`))
+        .catch(error => {
+            console.error("Error getting list of curiosities from DB", error)
+            next(error)
+        });
 });
 
 // DELETE: delete curiosities
