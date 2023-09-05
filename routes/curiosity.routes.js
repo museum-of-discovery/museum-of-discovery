@@ -23,7 +23,7 @@ router.get('/:category', (req, res, next) => {
 })
 
 // CREATE: display form 
-router.get("/curiosities/create", (req, res, next) => {
+router.get("/curiosities/create", isLoggedIn, (req, res, next) => {
     Curiosity.find()
         .then((curiositiesFromDB) => {
             res.render("curiosities/curiosity-create", { curiosities: curiositiesFromDB });
@@ -36,11 +36,10 @@ router.get("/curiosities/create", (req, res, next) => {
 });
 
 // CREATE: process form
-router.post("/curiosities/create", fileUploader.single('image'), (req, res, next) => {
-    const currentUser = req.user;
+router.post("/curiosities/create", isLoggedIn, fileUploader.single('image'), (req, res, next) => {
 
     const newCuriosity = {
-        //user: currentUser._id,
+        user: req.body.username,
         title: req.body.title,
         date: req.body.date,
         description: req.body.description,
@@ -73,7 +72,7 @@ router.get("/curiosities/:id", (req, res, next) => {
 });
 
 // READ: display edit page of one curiosity:
-router.get('/curiosities/:id/edit', (req, res, next) => {
+router.get('/curiosities/:id/edit', isLoggedIn, (req, res, next) => {
     const { id } = req.params;
 
     Curiosity.findById(id)
@@ -84,16 +83,15 @@ router.get('/curiosities/:id/edit', (req, res, next) => {
 });
 
 // EDIT: update values of one curiosity:
-router.post('/curiosities/:id/edit', fileUploader.single('image'), (req, res, next) => {
+router.post('/curiosities/:id/edit', isLoggedIn, fileUploader.single('image'), (req, res, next) => {
     const { id } = req.params;
     const { title, date, description, category } = req.body;
-   // const { image } = req.file ? req.file.path : {};
-    // console.log(req.file.path)
+
     let image;
     console.log(req.body)
-    if(req.file){
+    if (req.file) {
         console.log(req.file.path)
-         image = req.file.path
+        image = req.file.path
     } else {
         console.log('Img', req.body.image)
     }
@@ -108,7 +106,7 @@ router.post('/curiosities/:id/edit', fileUploader.single('image'), (req, res, ne
 });
 
 // DELETE: delete curiosities
-router.post('/curiosities/:id/delete', async (req, res, next) => {
+router.post('/curiosities/:id/delete', isLoggedIn, async (req, res, next) => {
     const { id } = req.params;
     const { category } = req.body;
 
