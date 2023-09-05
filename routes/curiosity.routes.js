@@ -13,7 +13,9 @@ router.get('/:category', (req, res, next) => {
     const { category } = req.params;
 
     Curiosity.find({ category })
+        .populate("user")
         .then((curiositiesFromDB) => {
+            console.log(curiositiesFromDB)
             res.render(`curiosities/curiosity`, { curiosities: curiositiesFromDB, title: category })
         })
         .catch((e) => {
@@ -37,9 +39,9 @@ router.get("/curiosities/create", isLoggedIn, (req, res, next) => {
 
 // CREATE: process form
 router.post("/curiosities/create", isLoggedIn, fileUploader.single('image'), (req, res, next) => {
-
+    console.log()
     const newCuriosity = {
-        user: req.body.username,
+        user: req.session.currentUser._id,
         title: req.body.title,
         date: req.body.date,
         description: req.body.description,
@@ -52,6 +54,7 @@ router.post("/curiosities/create", isLoggedIn, fileUploader.single('image'), (re
             res.redirect(`/${newCuriosity.category}`)
         })
         .catch(e => {
+            console.log(e)
             console.error("error creating a new curiosity", e);
             next(e);
         });
@@ -62,6 +65,7 @@ router.get("/curiosities/:id", (req, res, next) => {
     const { id } = req.params;
 
     Curiosity.findById(id)
+        .populate("user")
         .then(curiosityFromDB => {
             res.render("curiosities/curiosity-details", curiosityFromDB);
         })

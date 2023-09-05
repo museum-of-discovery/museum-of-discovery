@@ -155,7 +155,6 @@ router.get("/logout", isLoggedIn, (req, res) => {
 
 // GET user profile:
 router.get("/user-profile", (req, res, next) => {
-  console.log(req.session.currentUser)
   const data = {
     currentUser:req.session.currentUser
   }

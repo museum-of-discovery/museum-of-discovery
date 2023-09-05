@@ -2,6 +2,8 @@
 
 <form method="POST" action="/curiosities/create" enctype="multipart/form-data">
 
+    <label type="hidden" value="{{user.username}}"></label>
+
     <label> Title:<span class="required-indicator">*</span>
         <input type="text" name="title" required />
     </label>
