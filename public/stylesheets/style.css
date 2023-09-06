@@ -13,7 +13,6 @@ a {
   font-weight: bold;
 }
 
-<<<<<<< HEAD
 
 
 
@@ -193,16 +192,16 @@ p {
     margin-bottom: 3%;
 
   }
-=======
-.nav-link {
-  color: floralwhite;
-}
 
-button {
-  background-color: rgb(10, 51, 71);
-}
+  .nav-link {
+    color: floralwhite;
+  }
 
-h4 {
-  text-align: center;
->>>>>>> 0e70e24da4f63be3f975fbef3564bf431d9b1f34
+  button {
+    background-color: rgb(10, 51, 71);
+  }
+
+  h4 {
+    text-align: center;
+  }
 }
