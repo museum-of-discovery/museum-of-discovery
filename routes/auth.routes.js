@@ -10,6 +10,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
+const Curiosity = require("../models/Curiosity.model");
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -154,12 +155,22 @@ router.get("/logout", isLoggedIn, (req, res) => {
 });
 
 // GET user profile:
-router.get("/user-profile", (req, res, next) => {
-  const data = {
-    currentUser: req.session.currentUser
+router.get("/user-profile", isLoggedIn, async (req, res, next) => {
+  try {
+    const userId = req.session.currentUser._id;
+
+    // Query the database to find curiosities created by the current user
+    const userCuriosities = await Curiosity.find({ user: userId });
+
+    // Render the profile page and pass the user's curiosities
+    res.render("auth/user-profile", {
+      currentUser: req.session.currentUser,
+      userCuriosities: userCuriosities,
+    });
+  } catch (error) {
+    console.error("Error retrieving user curiosities", error);
+    next(error);
   }
-  console.log(data.currentUser)
-  res.render("auth/user-profile", data);
-})
+});
 
 module.exports = router;
