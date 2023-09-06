@@ -10,3 +10,184 @@ a {
 h1 {
   color: 15px;
 }
+
+
+
+
+/* Curiosity.hbs */
+
+/* Common styles for all screen sizes */
+.curiosities-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.curiosities {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.category-class {
+  font-size: 50px;
+  text-align: center;
+}
+
+.curiosity-title {
+  font-size: 18px;
+  text-align: center;
+}
+
+.images-container {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.images {
+  max-width: 300px;
+  max-height: 200px;
+}
+
+#btn-more-info {
+  width: 100px;
+  height: auto;
+  border-radius: 30px;
+  border: hidden;
+  align-self: center;
+}
+
+
+/*More Details Page Styles*/
+
+.details-title {
+  text-align: center;
+}
+
+h6 {
+  text-align: center;
+  font-style: italic;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0% 20%;
+}
+
+.img-details {
+  max-width: 500px;
+  max-width: 600px;
+  align-self: center;
+  margin-bottom: 3%;
+
+}
+
+p {
+  text-align: justify;
+}
+
+
+/* Media query for phones (up to 480px) */
+@media only screen and (max-width: 480px) {
+  body {
+    padding: 50px;
+  }
+
+  .curiosities {
+    padding: 2%;
+  }
+
+  .curiosities-container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .images-container {
+    width: 300px;
+    height: 200px;
+  }
+
+  .images {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
+
+
+.details-container {
+  margin: 0% 20%;
+}
+
+.img-details {
+  max-width: 50px;
+  max-width: 100px;
+  margin-bottom: 3%;
+}
+
+
+/* Media query for tablets (481px to 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    padding: 30px;
+  }
+
+  .curiosities {
+    padding: 5px;
+  }
+
+  .curiosities-container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+.details-container {
+  margin: 0% 20%;
+}
+
+.img-details {
+  max-width: 500px;
+  max-width: 600px;
+  margin-bottom: 3%;
+
+}
+
+
+/* Media query for PCs (769px and above) */
+@media only screen and (min-width: 769px) {
+  body {
+    padding: 30px;
+  }
+
+  .curiosities {
+    padding: 5px;
+  }
+
+  .curiosities-container {
+    padding-left: 25%;
+    padding-right: 20%;
+  }
+
+  .images-container {
+    width: 300px;
+    height: 200px;
+  }
+
+  .images {
+    max-width: 300px;
+    max-height: 400px;
+  }
+
+  .details-container {
+
+    margin: 0% 20%;
+  }
+
+  .img-details {
+    max-width: 500px;
+    max-width: 600px;
+    margin-bottom: 3%;
+
+  }
+}
