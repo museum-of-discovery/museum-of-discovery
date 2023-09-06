@@ -63,6 +63,7 @@ router.post("/curiosities/create", isLoggedIn, fileUploader.single('image'), (re
 // READ: display details of one curiosity:
 router.get("/curiosities/:id", (req, res, next) => {
     const { id } = req.params;
+    console.log('hello')
 
     Curiosity.findById(id)
         .populate("user")
