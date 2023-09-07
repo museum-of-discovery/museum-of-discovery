@@ -1,17 +1,12 @@
 {{#if currentUser}}
 <h1>Welcome {{currentUser.username}}</h1>
-<p>This is your profile page my friend!</p>
-  <h2>Your Curiosities</h2>
-  <ul>
+  <h3>Your Curiosities</h3>
     {{#each userCuriosities}}
-      <li>
         <a href="/curiosities/{{this._id}}">
           {{this.title}}
           <img src="{{this.image}}" alt="{{this.title}}">
         </a>
-      </li>
     {{/each}}
-  </ul>
 {{else}}
   <h1>User not logged in.</h1>
 {{/if}}

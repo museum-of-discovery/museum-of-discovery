@@ -1,24 +1,39 @@
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/auth/login" method="POST">
+<div class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-6">
+      <div id="login-form">
+        <h2 class="text-center">Log In</h2>
+        <form action="/auth/login" method="POST">
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+          </div>
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+              placeholder="Enter email" required>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+          </div>
+          <style>
+            .custom-blue-btn {
+              background-color: #0b857d;
+              color: floralwhite;
+            }
+          </style>
+          <button type="submit" class="btn custom-blue-btn btn-block">Log In</button>
 
-    <button type="submit">Log In</button>
-
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+          {{#if errorMessage}}
+          <p class="error text-center">{{errorMessage}}</p>
+          {{/if}}
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
