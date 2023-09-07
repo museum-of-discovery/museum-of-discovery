@@ -13,6 +13,18 @@ a {
   font-weight: bold;
 }
 
+.nav-link {
+  color: floralwhite;
+}
+
+button {
+  background-color: rgb(10, 51, 71);
+}
+
+h4 {
+  text-align: center;
+}
+
 
 
 
@@ -193,15 +205,4 @@ p {
 
   }
 
-  .nav-link {
-    color: floralwhite;
-  }
-
-  button {
-    background-color: rgb(10, 51, 71);
-  }
-
-  h4 {
-    text-align: center;
-  }
 }
