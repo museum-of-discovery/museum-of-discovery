@@ -37,7 +37,12 @@ body {
 }
 
 a {
-  color: #00b7ff;
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
 }
 
 .navbar-brand {
@@ -95,9 +100,12 @@ h4 {
 #btn-more-info {
   width: 100px;
   height: auto;
-  border-radius: 30px;
-  border: hidden;
+  border: 2px solid #0b857d;
   align-self: center;
+  background-color: #FFFFE0;
+  margin-top: 15px;
+  text-decoration: none;
+  color: black;
 }
 
 
