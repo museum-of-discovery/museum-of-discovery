@@ -1,18 +1,16 @@
-<h1>{{curiosity.title}}</h1>
-
+<h1 class="details-title">{{curiosity.title}}</h1>
+<h6> By: {{curiosity.user.username}}</h6>
 <hr />
 
-<img src="{{curiosity.image}}" alt="">
+<div class="details-container">
+    <img class="img-details" src="{{curiosity.image}}" alt="">
 
-<h3>{{curiosity.user.username}}</h3>
+    <h3>Description</h3>
+    <p>{{curiosity.description}}</p>
 
-
-<h3>Description</h3>
-<p>{{curiosity.description}}</p>
-
-<h4>Date</h4>
-<p>{{curiosity.date}}</p>
-
+    <h4>Date</h4>
+    <p>{{curiosity.date}}</p>
+</div>
 
 
 <hr />
