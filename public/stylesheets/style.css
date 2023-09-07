@@ -65,9 +65,20 @@ h4 {
   text-align: justify;
 }
 
+.custom-blue-btn {
+  background-color: #0b857d;
+  color: floralwhite;
+}
 
+.card {
+  background-color: transparent;
+  border: none;
+}
 
-
+.card-footer {
+  background-color: transparent;
+  border: none;
+}
 /* Common styles for all screen sizes */
 
 
