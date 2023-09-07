@@ -7,6 +7,8 @@
   <title>{{appTitle}}</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.18.0/font/bootstrap-icons.css">
 
 
   <link rel="stylesheet" href="/stylesheets/style.css" />
@@ -18,12 +20,12 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #0b857d">
     <div class="container-fluid">
       <img src="/images/logo.png" alt="Museum Logo" width="120" height="auto">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon custom-toggler">
-          <i class="fas fa-bars"></i>
-          </span>
-        </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon custom-toggler">
+          <i class="fas fa-bars" style="color: #fffaf0 "></i>
+        </span>
+      </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto">
           <li class="nav-item">
@@ -45,8 +47,8 @@
             <a class="nav-link" href="/Fascinating Finds">Fascinating Finds</a>
           </li>
         </ul>
-          {{#if user}}
-          <ul class="navbar-nav ml-auto">
+        {{#if user}}
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/auth/user-profile">My Profile</a>
           </li>
@@ -57,18 +59,18 @@
           <form action="/auth/logout" id="logout-form" method="GET" class="nav-item">
             <button class="nav-link">Logout</button>
           </form>
-          </ul>
+        </ul>
 
-          {{else}}
-          <ul class="navbar-nav ml-auto">
+        {{else}}
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/auth/signup">Sign Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/auth/login">Log In</a>
           </li>
-          </ul>
-          {{/if}}
+        </ul>
+        {{/if}}
         </ul>
       </div>
     </div>
