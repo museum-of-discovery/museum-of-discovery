@@ -79,6 +79,7 @@ h4 {
   background-color: transparent;
   border: none;
 }
+
 /* Common styles for all screen sizes */
 
 
@@ -183,16 +184,6 @@ p {
   margin-left: 100px;
   text-align: center;
 }
-
-#curiosities-profile {
-  font-size: 30px;
-  margin-top: 20px;
-  margin-left: 100px;
-  text-align: center;
-
-}
-
-
 
 
 

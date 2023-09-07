@@ -1,7 +1,9 @@
 {{#if currentUser}}
 <div class="container mt-4">
-  <h1 class="display-4">Welcome {{currentUser.username}}!</h1>
-  <h2 class="h3">Your Curiosities:</h2>
+  <div id="user-welcome">
+    <h1 class="display-4">Welcome {{currentUser.username}}!</h1>
+    <h2 class="h3">Your Curiosities:</h2>
+  </div>
   <div class="row">
     {{#each userCuriosities}}
     <div class="col-md-4 mb-4">
