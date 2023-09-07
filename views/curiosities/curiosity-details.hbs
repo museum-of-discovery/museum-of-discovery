@@ -14,11 +14,18 @@
 
 
 <hr />
-{{#if isAllowedToEdit}}
-<form action="/curiosities/{{curiosity._id}}/delete" method="POST">
-    <input type="hidden" name="category" value="{{curiosity.category}}">
-    <button>Delete</button>
-</form>
-<a href="/curiosities/{{curiosity._id}}/edit">Edit</a>
-{{/if}}
-<a href="/">Home</a>
+
+<div class="interaction-container">
+    {{#if isAllowedToEdit}}
+    <form action="/curiosities/{{curiosity._id}}/delete" method="POST">
+        <input type="hidden" name="category" value="{{curiosity.category}}">
+        <button id="delete-btn">Delete</button>
+    </form>
+    <button class="interaction">
+        <a href="/curiosities/{{curiosity._id}}/edit">Edit</a>
+    </button>
+    {{/if}}
+    <button class="interaction">
+        <a href="/">Home</a>
+    </button>
+</div>

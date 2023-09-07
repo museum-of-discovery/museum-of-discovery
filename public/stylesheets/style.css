@@ -58,14 +58,12 @@ button {
   background-color: rgb(10, 51, 71);
 }
 
+
 h4 {
-  text-align: center;
+  text-align: justify;
 }
 
 
-
-
-/* Curiosity.hbs */
 
 /* Common styles for all screen sizes */
 
@@ -109,10 +107,9 @@ h4 {
 }
 
 
-/*More Details Page Styles*/
-
 .details-title {
   text-align: center;
+  margin-top: 100px;
 }
 
 h6 {
@@ -137,6 +134,35 @@ h6 {
 p {
   text-align: justify;
 }
+
+.interaction-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+
+}
+
+.interaction {
+  background-color: #FFFFE0;
+  border: 2px, solid, #0b857d;
+  margin: 20px;
+  width: 100px;
+  height: 30px;
+}
+
+
+
+#delete-btn {
+  background-color: #BDB76B;
+  margin: 20px;
+  width: 100px;
+  height: 30px;
+}
+
+
+
 
 
 /* Media query for phones (up to 480px) */
@@ -174,6 +200,10 @@ p {
   margin-bottom: 3%;
 }
 
+.create-form {
+  margin-top: 100px;
+}
+
 
 /* Media query for tablets (481px to 768px) */
 @media only screen and (min-width: 481px) and (max-width: 768px) {
@@ -208,6 +238,10 @@ p {
   margin-top: 70px;
 }
 
+.create-form {
+  margin-top: 100px;
+}
+
 
 /* Media query for PCs (769px and above) */
 @media only screen and (min-width: 769px) {
@@ -233,7 +267,7 @@ p {
 
   .images {
     max-width: 300px;
-    max-height: 400px;
+    max-height: 200px;
   }
 
   .details-container {
@@ -242,14 +276,18 @@ p {
   }
 
   .img-details {
-    max-width: 500px;
-    max-width: 600px;
+    max-width: 1200px;
+    max-width: 720px;
     margin-bottom: 3%;
 
   }
 
   .category-class {
     margin-top: 70px;
+  }
+
+  .create-form {
+    margin-top: 200px;
   }
 
 }
