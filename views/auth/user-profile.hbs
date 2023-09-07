@@ -1,12 +1,18 @@
 {{#if currentUser}}
-<h1>Welcome {{currentUser.username}}</h1>
-  <h3>Your Curiosities</h3>
-    {{#each userCuriosities}}
-        <a href="/curiosities/{{this._id}}">
-          {{this.title}}
-          <img src="{{this.image}}" alt="{{this.title}}">
-        </a>
-    {{/each}}
+<h1 id="user-welcome">Welcome {{currentUser.username}}!</h1>
+<h3 id="curiosities-profile">Your Curiosities:</h3>
+{{#each userCuriosities}}
+<div class="profile-curiosities-display">
+  <div class="profile-curiosities">
+    <a href="/curiosities/{{this._id}}">
+      <h2 class="curiosity-title">{{this.title}}</h2>
+      <div class="images-container">
+        <img class="images" src="{{this.image}}" alt="{{this.title}}">
+      </div>
+    </a>
+  </div>
+</div>
+{{/each}}
 {{else}}
-  <h1>User not logged in.</h1>
+<h1>User not logged in.</h1>
 {{/if}}
