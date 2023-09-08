@@ -15,7 +15,6 @@ router.get('/:category', (req, res, next) => {
     Curiosity.find({ category })
         .populate("user")
         .then((curiositiesFromDB) => {
-            console.log(curiositiesFromDB)
             res.render(`curiosities/curiosity`, { curiosities: curiositiesFromDB, title: category })
         })
         .catch((e) => {
@@ -39,7 +38,6 @@ router.get("/curiosities/create", isLoggedIn, (req, res, next) => {
 
 // CREATE: process form
 router.post("/curiosities/create", isLoggedIn, fileUploader.single('image'), (req, res, next) => {
-    console.log()
     const newCuriosity = {
         user: req.session.currentUser._id,
         title: req.body.title,
@@ -54,7 +52,6 @@ router.post("/curiosities/create", isLoggedIn, fileUploader.single('image'), (re
             res.redirect(`/${newCuriosity.category}`)
         })
         .catch(e => {
-            console.log(e)
             console.error("error creating a new curiosity", e);
             next(e);
         });
@@ -63,7 +60,6 @@ router.post("/curiosities/create", isLoggedIn, fileUploader.single('image'), (re
 // READ: display details of one curiosity:
 router.get("/curiosities/:id", (req, res, next) => {
     const { id } = req.params;
-    console.log('hello')
 
     Curiosity.findById(id)
         .populate("user")
@@ -94,12 +90,8 @@ router.post('/curiosities/:id/edit', isLoggedIn, fileUploader.single('image'), (
     const { title, date, description, category } = req.body;
 
     let image;
-    console.log(req.body)
     if (req.file) {
-        console.log(req.file.path)
         image = req.file.path
-    } else {
-        console.log('Img', req.body.image)
     }
 
 
